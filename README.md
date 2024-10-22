@@ -1,6 +1,4 @@
-# Hadoop Installation on Ubuntu & MacOS 
-
-## Hadoop Installation on MacOS Step-by-Step Guide
+# Hadoop Installation on MacOS Step-by-Step Guide
 This guide provides a comprehensive, step-by-step process to install and configure Hadoop on macOS. Follow the instructions carefully to ensure a smooth installation and setup.
 
 ### Prerequisites
@@ -12,11 +10,8 @@ Java JDK (Java 8 or 11). Hadoop doesn't support newer versions. Install it using
 ```bash
 brew install openjdk@11
 ```
-
 Set up the JAVA_HOME environment variable:
-```bash
-export JAVA_HOME=$(/usr/libexec/java_home -v 11)
-```
+
 
 ### Step 1: Install Hadoop via Homebrew
 Run the following command to install Hadoop:
@@ -35,7 +30,7 @@ code .
 
 In hadoop-env.sh, update the JAVA_HOME path:
 ```bash
-export JAVA_HOME=$(/usr/libexec/java_home -v 11)
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-19.jdk/Contents/Home
 ```
 ![env file ](img/env.png)
 
@@ -156,11 +151,41 @@ jps
 
 You should see services like NameNode, DataNode, ResourceManager, and NodeManager listed.
 
+Now, go to http://localhost:9870
+![env file ](img/jps.png)
+![env file ](img/ui1.png)
+![env file ](img/ui2.png)
+![env file ](img/ui3.png)
+
+### To create and list a folder in HDFS use the following command-
+```bash
+hadoop fs -mkdir /user/dataTeam
+hadoop fs -ls /user
+```
+![env file ](img/mkdir.png)
+
+### To put a file from the local system to an HDFS directory, use the following command:
+```bash
+hadoop fs -put /local/path/to/file /hdfs/path/to/directory
+```
+![env file ](img/put.png)
+
+**Validate HDFS Storage Check if the HDFS is functioning correctly and if there's enough storage space available. Use the following command to view the storage report:**
+```bash
+hadoop dfsadmin -report
+```
+![env file ](img/report.png)
+
+**Check HDFS Health**
+Run the command to see if there are any underlying issues with HDFS. Check for any corrupt blocks or under-replicated blocks:
+```bash
+hadoop fsck /
+```
+![env file ](img/fsck.png)
 
 
 ### Conclusion
-You have successfully installed and configured Hadoop on macOS using Homebrew. Now you can start using Hadoop for your big data processing needs.
-This README.md provides a detailed yet straightforward guide to Hadoop installation, ensuring all necessary configurations are set for smooth operation.
+You have successfully installed and configured Hadoop on macOS. Now you can start using Hadoop for your big data processing needs.
 
 
 
