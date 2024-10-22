@@ -23,8 +23,9 @@ Run the following command to install Hadoop:
 ```bash
 brew install hadoop
 ```
-
-### Step 2: Configure Environment Variables
+![version verify ](img/verify.png)
+### Step 2:  Configure Environment Variables
+Configure Environment Variables
 Navigate to the Hadoop environment configuration file:
 Open hadoop-env.sh using your preferred editor (example: vi,nano or VSCode)
 ```bash
@@ -36,6 +37,7 @@ In hadoop-env.sh, update the JAVA_HOME path:
 ```bash
 export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 ```
+![env file ](img/env.png)
 
 ### Step 3: Configure Core Files
 
@@ -49,6 +51,8 @@ Add the following configuration for HDFS:
   </property>
 </configuration>
 ```
+![env file ](img/core.png)
+
 ### Step 4: Configure HDFS Files
 ```hdfs-site.xml```
 Add the following configuration to set replication:
@@ -62,6 +66,8 @@ Add the following configuration to set replication:
   </property>
 </configuration>
 ```
+![env file ](img/hdfs.png)
+
 ### Step 5: Configure MapReduce Files
 ```mapred-site.xml```
 Add the following configuration:
@@ -80,6 +86,8 @@ Add the following configuration:
   </property>
 </configuration>
 ```
+![env file ](img/mapred.png)
+
 ### Step 6: Configure YARN Files
 ```yarn-site.xml```
 Add the following configuration:
@@ -98,12 +106,16 @@ Add the following configuration:
   </property>
 </configuration>
 ```
+![env file ](img/yarn.png)
+
 
 **Once all the configurations are done, start all Hadoop services:**
 ```bash
 start-all.sh
 ```
 If you encounter any error like
+![env file ](img/denied.png)
+
 
 Then, you have to run these following commands:
 
@@ -126,19 +138,25 @@ Then, you have to run these following commands:
  ```bash
  hadoop namenode -format
 ```
+![env file ](img/format.png)
 
 Start Hadoop services again:
 
 ```bash
 start-all.sh
 ```
+![env file ](img/start.png)
 
 ### Step 8: Verify Hadoop Processes
 To verify that all processes are running correctly, run:
 ```bash
 jps
 ```
+![env file ](img/jps.png)
+
 You should see services like NameNode, DataNode, ResourceManager, and NodeManager listed.
+
+
 
 ### Conclusion
 You have successfully installed and configured Hadoop on macOS using Homebrew. Now you can start using Hadoop for your big data processing needs.
