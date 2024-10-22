@@ -152,8 +152,7 @@ jps
 You should see services like NameNode, DataNode, ResourceManager, and NodeManager listed.
 
 Now, go to http://localhost:9870
-![env file ](img/jps.png)
-![env file ](img/ui1.png)
+![env file ](img/UI.png)
 ![env file ](img/ui2.png)
 ![env file ](img/ui3.png)
 
